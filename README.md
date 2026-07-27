@@ -268,52 +268,6 @@ Run the application
 
 ---
 
-# Screenshots
-
-## Main Menu
-
-(Add Screenshot Here)
-
-```
-screenshots/menu.png
-```
-
----
-
-## User Management
-
-(Add Screenshot Here)
-
-```
-screenshots/user_management.png
-```
-
----
-
-## Firewall Configuration
-
-(Add Screenshot Here)
-
----
-
-## LVM Setup
-
-(Add Screenshot Here)
-
----
-
-## Docker Deployment
-
-(Add Screenshot Here)
-
----
-
-## AWS S3 Backup
-
-(Add Screenshot Here)
-
----
-
 # Skills Demonstrated
 
 - Linux Administration
@@ -329,40 +283,7 @@ screenshots/user_management.png
 - Performance Optimization
 - Monitoring & Troubleshooting
 
----
 
-# Future Enhancements
-
-- Ansible Integration
-- Kubernetes Deployment
-- Terraform Integration
-- Jenkins Pipeline
-- Podman Support
-- Logging Dashboard
-- Email Notifications
-- Backup Scheduling
-- Health Check Reports
-- YAML Configuration Support
-
----
-
-# Why This Project?
-
-This project was developed as a practical implementation of the concepts covered in the Red Hat Certified System Administrator (RHCSA) curriculum. It demonstrates the ability to automate routine Linux administration tasks through Bash scripting while following a modular, scalable, and maintainable design.
-
-The project reflects hands-on experience in Linux system administration, infrastructure automation, storage management, networking, security configuration, container deployment, AWS integration, and system performance tuning.
-
----
-
-# Author
-
-**Sparsh Jain**
-
-B.Tech Computer Science Engineering
-
-Linux | RHCSA | RHCE | DevOps | AWS | Bash Scripting
-
-GitHub: https://github.com/YOUR_USERNAME
 
 LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
 
