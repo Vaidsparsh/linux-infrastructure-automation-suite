@@ -1,0 +1,11 @@
+logs/
+*.log
+
+*.pem
+*.key
+
+.env
+
+.aws/
+
+*.tfstate
