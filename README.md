@@ -266,8 +266,6 @@ Run the application
 ./menu.sh
 ```
 
----
-
 # Skills Demonstrated
 
 - Linux Administration
@@ -283,12 +281,5 @@ Run the application
 - Performance Optimization
 - Monitoring & Troubleshooting
 
-
-
-LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
-
 ---
 
-# License
-
-This project is licensed under the MIT License.
