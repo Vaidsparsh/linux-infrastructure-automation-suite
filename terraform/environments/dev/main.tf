@@ -1,2 +1,11 @@
-# AWS infrastructure will be added here
-# in the upcoming steps.
+resource "aws_vpc" "main" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name        = "cloud-dev-vpc"
+    Environment = "dev"
+    Project     = "cloud-infrastructure-automation"
+  }
+}
