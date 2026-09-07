@@ -1,11 +1,86 @@
+# ================================
+# Logs
+# ================================
 logs/
 *.log
 
-*.pem
-*.key
-
+# ================================
+# Environment & Secrets
+# ================================
 .env
+.env.*
+!.env.example
 
+# AWS credentials
 .aws/
 
+# Private keys / certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ================================
+# Terraform
+# ================================
+.terraform/
 *.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+
+# Terraform lock file should be committed
+!.terraform.lock.hcl
+
+# ================================
+# Python
+# ================================
+__pycache__/
+*.py[cod]
+*.class
+
+.venv/
+venv/
+env/
+ENV/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ================================
+# Ansible
+# ================================
+*.retry
+.retry/
+
+# ================================
+# Docker
+# ================================
+docker-compose.override.yml
+
+# ================================
+# IDE / Editor
+# ================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ================================
+# Operating System
+# ================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ================================
+# Temporary files
+# ================================
+*.tmp
+*.temp
+*.bak
