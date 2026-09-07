@@ -1,285 +1,349 @@
-# Linux Infrastructure Automation Suite
+# Cloud Infrastructure Automation & DevOps Platform
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Platform-RHEL%209-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Language-Bash-green?style=for-the-badge">
-  <img src="https://img.shields.io/badge/AWS-S3-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Docker-Containers-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/RHCSA-Project-success?style=for-the-badge">
-</p>
+An end-to-end infrastructure automation and DevOps platform that provisions, configures, deploys, secures, and monitors cloud infrastructure using Infrastructure as Code, configuration management, containerization, CI/CD, and observability.
+
+> **Project evolution:** This project is an advanced continuation of my previous Linux Infrastructure Automation Suite developed during my previous internship. The original Bash-based Linux automation capabilities are preserved under `legacy/` and are being progressively modernized using Terraform, Ansible, Python, AWS, Docker, GitHub/GitLab CI/CD, DevSecOps, and monitoring.
 
 ---
 
-# Linux Infrastructure Automation Suite
+## 🎯 Project Goals
 
-A menu-driven Linux administration toolkit developed on **Red Hat Enterprise Linux 9 (RHEL 9)** to automate common system administration tasks learned during the **Red Hat Certified System Administrator (RHCSA)** training.
+The project aims to automate the complete infrastructure lifecycle:
 
-The project provides a centralized command-line interface that enables Linux administrators to perform essential infrastructure management tasks efficiently without repeatedly executing long commands manually.
-
-This project demonstrates practical Linux administration, Bash scripting, automation, storage management, networking, security, monitoring, and AWS integration.
-
----
-
-# Project Motivation
-
-During my RHCSA training, I learned several Linux administration concepts such as:
-
-- User Administration
-- Firewall Configuration
-- SELinux
-- Network Configuration
-- SSH Hardening
-- Logical Volume Management (LVM)
-- NFS & AutoFS
-- Docker Container Deployment
-- AWS S3 Backup
-- System Monitoring
-- Performance Optimization
-
-Instead of practicing these topics individually, I developed this unified automation suite that combines all RHCSA concepts into a single interactive application.
-
----
-
-# Features
-
-## User Management
-
-- Create users
-- Delete users
-- Modify users
-- Reset passwords
-- Lock/Unlock accounts
-- Manage groups
-- View user information
-
----
-
-## Firewall Configuration
-
-- Enable Firewalld
-- Open ports
-- Close ports
-- Add permanent firewall rules
-- Reload firewall configuration
-- View active firewall rules
-
----
-
-## SELinux Configuration
-
-- Check SELinux status
-- Enable SELinux
-- Disable SELinux
-- Switch between Enforcing, Permissive and Disabled modes
-- View SELinux policies
-
----
-
-## Network Configuration
-
-- Display network interfaces
-- Configure static IP
-- Configure hostname
-- Restart networking
-- Verify connectivity
-- DNS configuration
-
----
-
-## SSH Configuration
-
-- Configure SSH server
-- Change SSH port
-- Enable/Disable Root Login
-- Restart SSH service
-- Verify SSH configuration
-
----
-
-## Logical Volume Management (LVM)
-
-- Create Physical Volumes
-- Create Volume Groups
-- Create Logical Volumes
-- Extend Logical Volumes
-- Resize Filesystems
-- Display Storage Information
-
----
-
-## NFS & AutoFS
-
-- Configure NFS Server
-- Configure NFS Client
-- Configure AutoFS
-- Mount remote directories automatically
-- Verify shared storage
-
----
-
-## Deploy Dockerized Services
-
-- Install Docker
-- Start Docker service
-- Deploy containers
-- Deploy Docker Compose applications
-- View running containers
-- Stop containers
-- Remove containers
-
----
-
-## AWS S3 Backup
-
-- Compress directories
-- Upload backups to AWS S3
-- Verify uploaded backups
-- Maintain backup logs
-
----
-
-## System Monitoring
-
-- CPU Usage
-- Memory Usage
-- Disk Usage
-- Running Processes
-- Active Services
-- Network Status
-- System Logs
-
----
-
-## Performance Tuning
-
-- Kernel Parameters
-- System Optimization
-- Memory Optimization
-- Swappiness Configuration
-- Performance Monitoring
-
----
-
-# Menu
-
+```text
+Provision → Configure → Secure → Deploy → Monitor → Backup
 ```
-========== Linux Infrastructure Automation Suite ==========
 
-1. User Management
-2. Firewall Configuration
-3. SELinux Configuration
-4. Network Configuration
-5. SSH Configuration
-6. LVM Setup
-7. NFS + AutoFS Setup
-8. Deploy Dockerized Services
-9. Backup to AWS S3
-10. System Monitoring
-11. Performance Tuning
-12. Exit
+The platform will provide:
 
-===========================================================
+* Automated AWS infrastructure provisioning
+* Linux server configuration and hardening
+* Containerized application deployment
+* Infrastructure and configuration automation
+* CI/CD pipelines
+* Security scanning
+* Infrastructure testing
+* Monitoring and logging
+* Automated backups
+* Multi-environment support
+
+---
+
+## 🏗️ Planned Architecture
+
+```text
+                         Developer
+                             │
+                             ▼
+                    GitHub / GitLab
+                             │
+                             ▼
+                           CI/CD
+                             │
+             ┌───────────────┼───────────────┐
+             ▼               ▼               ▼
+         Terraform         Python         Security
+             │               │               │
+             ▼               ▼               ▼
+              AWS Infrastructure
+                     │
+                     ▼
+                   Ansible
+                     │
+          ┌──────────┼──────────┐
+          ▼          ▼          ▼
+        Linux      Docker     Security
+                     │
+                     ▼
+                Application
+                     │
+              ┌──────┴──────┐
+              ▼             ▼
+          Monitoring      Logging
+              │
+              ▼
+        Prometheus / Grafana
+              +
+          CloudWatch
 ```
 
 ---
 
-# Project Structure
+## 🛠️ Technology Stack
 
-```
-linux-infrastructure-automation-suite/
+| Technology     | Purpose                                    |
+| -------------- | ------------------------------------------ |
+| Linux          | Server operating system and administration |
+| Bash           | Legacy Linux automation                    |
+| Python         | Automation and orchestration               |
+| Ansible        | Configuration management                   |
+| Terraform      | Infrastructure as Code                     |
+| AWS            | Cloud infrastructure                       |
+| Docker         | Containerization                           |
+| Amazon ECR     | Container image registry                   |
+| GitHub         | Source control and collaboration           |
+| GitHub Actions | CI/CD                                      |
+| GitLab         | Source control / CI/CD                     |
+| Prometheus     | Metrics collection                         |
+| Grafana        | Monitoring dashboards                      |
+| CloudWatch     | AWS monitoring and logging                 |
+| Trivy          | Container security scanning                |
+| Checkov        | Infrastructure security scanning           |
 
-├── menu.sh
-├── user_mgmt.sh
-├── firewall_config.sh
-├── selinux_config.sh
-├── network_config.sh
-├── ssh_config.sh
-├── lvm_setup.sh
-├── nfs_autofs.sh
-├── service_installer.sh
-├── backup_to_s3.sh
-├── monitor.sh
-├── system_tuning.sh
+---
+
+## 📁 Project Structure
+
+```text
+cloud-infrastructure-automation/
+│
+├── legacy/                  # Original Bash automation
+│
+├── terraform/               # AWS Infrastructure as Code
+│
+├── ansible/                 # Server configuration
+│
+├── python/                  # Python automation
+│
+├── docker/                  # Containerization
+│
+├── monitoring/              # Monitoring and observability
+│
+├── tests/                   # Automated tests
+│
+├── docs/                    # Project documentation
+│
+├── .github/
+│   └── workflows/           # GitHub Actions
+│
 ├── Dockerfile
 ├── docker-compose.yml
-├── logs/
-├── screenshots/
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-# Technologies Used
+## 🔄 Project Workflow
 
-- Red Hat Enterprise Linux 9
-- Bash Shell Scripting
-- Firewalld
-- SELinux
-- OpenSSH
-- LVM
-- XFS
-- NFS
-- AutoFS
-- Docker
-- Docker Compose
-- AWS CLI
-- Amazon S3
-- Git
-- GitHub
+The target deployment workflow is:
+
+```text
+Developer
+    │
+    ▼
+Git Push / Pull Request
+    │
+    ▼
+CI/CD Pipeline
+    │
+    ├── Code Quality
+    ├── Security Checks
+    ├── Terraform Validation
+    ├── Ansible Validation
+    └── Docker Build
+    │
+    ▼
+Terraform
+    │
+    ▼
+AWS Infrastructure
+    │
+    ▼
+Ansible
+    │
+    ▼
+Server Configuration
+    │
+    ▼
+Docker / ECR
+    │
+    ▼
+Application Deployment
+    │
+    ▼
+Monitoring & Logging
+```
 
 ---
 
-# Prerequisites
+## 📌 Development Phases
 
-- RHEL 9
-- Root or sudo privileges
-- Bash
-- Git
-- Docker
-- AWS CLI (for S3 backup)
+### Phase 1 — Project Foundation
+
+* Repository restructuring
+* Legacy automation preservation
+* Git workflow
+* Documentation foundation
+* Security-focused `.gitignore`
+
+### Phase 2 — Infrastructure as Code
+
+* Terraform
+* AWS VPC
+* Subnets
+* Security Groups
+* EC2
+* IAM
+* S3
+* ECR
+
+### Phase 3 — Configuration Management
+
+* Ansible
+* Dynamic inventory
+* Linux configuration
+* Security hardening
+* Docker installation
+* Application configuration
+
+### Phase 4 — Python Automation
+
+* Python CLI
+* AWS automation
+* Terraform orchestration
+* Ansible orchestration
+* Health checks
+* Backup automation
+
+### Phase 5 — Containerization
+
+* Docker
+* Docker Compose
+* Application container
+* Nginx
+* Amazon ECR
+
+### Phase 6 — CI/CD
+
+* GitHub Actions
+* GitLab CI/CD
+* Automated testing
+* Terraform pipeline
+* Docker image pipeline
+* Automated deployment
+
+### Phase 7 — DevSecOps
+
+* OIDC authentication
+* Trivy
+* Checkov
+* Bandit
+* Ansible Lint
+* Secret scanning
+* IAM least privilege
+
+### Phase 8 — Observability
+
+* Prometheus
+* Grafana
+* CloudWatch
+* Application monitoring
+* Log collection
+* Alerts
+
+### Phase 9 — Advanced Automation
+
+* Infrastructure testing
+* Terraform drift detection
+* Cost estimation
+* Automated backups
+* Multi-environment deployment
+* Deployment rollback
 
 ---
 
-# Installation
+## 🗂️ Legacy Project
 
-Clone the repository
+The original Bash-based Linux Infrastructure Automation Suite is preserved in:
 
-```bash
-git clone https://github.com/YOUR_USERNAME/linux-infrastructure-automation-suite.git
+```text
+legacy/
 ```
 
-Navigate into the project
+It contains automation for areas including:
 
-```bash
-cd linux-infrastructure-automation-suite
-```
+* User management
+* Firewall configuration
+* SELinux
+* Networking
+* SSH configuration
+* LVM
+* NFS/AutoFS
+* Service installation
+* S3 backups
+* System monitoring
+* System tuning
 
-Make scripts executable
-
-```bash
-chmod +x *.sh
-```
-
-Run the application
-
-```bash
-./menu.sh
-```
-
-# Skills Demonstrated
-
-- Linux Administration
-- RHCSA Practical Skills
-- Bash Scripting
-- Infrastructure Automation
-- System Security
-- Storage Management
-- Network Administration
-- SSH Hardening
-- Container Deployment
-- AWS Integration
-- Performance Optimization
-- Monitoring & Troubleshooting
+These components will progressively be replaced or enhanced by Ansible, Python, AWS services, and modern DevOps tooling.
 
 ---
 
+## 🚧 Project Status
+
+**Current Phase:** Phase 1 — Project Foundation
+
+The project is currently being developed incrementally. Each phase will be implemented, tested, documented, and integrated with the previous phases.
+
+---
+
+## 🎓 Learning Objectives
+
+This project is designed to demonstrate practical experience with:
+
+* Linux administration
+* Infrastructure as Code
+* Configuration management
+* Cloud computing
+* Python automation
+* Containerization
+* CI/CD
+* DevSecOps
+* Monitoring and observability
+* Infrastructure testing
+* Git-based development workflows
+
+---
+
+## 📄 Documentation
+
+Detailed documentation will be maintained in:
+
+```text
+docs/
+```
+
+Planned documentation includes:
+
+* Architecture
+* Deployment
+* Security
+* Troubleshooting
+
+---
+
+## 👨‍💻 Project Evolution
+
+This project represents the evolution from a Linux administration automation project into a complete cloud infrastructure and DevOps automation platform.
+
+```text
+Linux + Bash
+      │
+      ▼
+Linux Infrastructure Automation
+      │
+      ▼
+Terraform + AWS
+      │
+      ▼
+Ansible + Python
+      │
+      ▼
+Docker + CI/CD
+      │
+      ▼
+DevSecOps + Monitoring
+      │
+      ▼
+Cloud Infrastructure Automation
+```
